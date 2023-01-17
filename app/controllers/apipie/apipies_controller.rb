@@ -154,7 +154,7 @@ module Apipie
     end
 
     def get_scope
-      @scope = params[:scope] ? params[:scope] : 'us-onshore'
+      @scope = params[:scope] ? params[:scope] : 'us-horizontals'
     end
 
     def render_from_cache
