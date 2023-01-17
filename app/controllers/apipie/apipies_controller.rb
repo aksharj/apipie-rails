@@ -19,6 +19,7 @@ module Apipie
       params[:version] ||= Apipie.configuration.default_version
 
       get_format
+      get_scope
 
       if params[:type].to_s == 'swagger' && params[:format].to_s == 'json'
         head :forbidden and return if Apipie.configuration.authorize
@@ -150,6 +151,10 @@ module Apipie
         end
       end
       request.format = params[:format] if params[:format]
+    end
+
+    def get_scope
+      @scope = params[:scope] ? params[:scope] : 'us-onshore'
     end
 
     def render_from_cache
